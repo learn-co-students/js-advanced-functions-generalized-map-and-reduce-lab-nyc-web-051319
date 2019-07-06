@@ -7,10 +7,13 @@ function map(values, action) {
   return newArray
 }
 
-function reduce(values, action, startingPoint = 0) {
-  let result
-  values.forEach(value => {
-    result = action(value, startingPoint)
-  })
-  return result
+function reduce(src, cb, starting){
+  let r = (!!starting) ? starting : src[0]
+  let i = (!!starting) ? 0 : 1
+
+  for (; i < src.length; i++) {
+    r = cb(src[i], r)
+  }
+
+  return r;
 }
