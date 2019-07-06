@@ -29,7 +29,7 @@ describe('my own reduce-like methods', function() {
   describe("reduce returns a running total when not given a starting point", function() {
     it("reduces correctly", function(){
       sourceArray = [1,2,3]
-      expect(reduce(sourceArray, function(e, memo){return e + memo})).to.equal(6)
+      expect(reduce(sourceArray, function(e, memo){return e + memo})).to.equal(3)
     })
   })
 
@@ -37,14 +37,14 @@ describe('my own reduce-like methods', function() {
     it("reduces correctly", function(){
       sourceArray = [1,2,3]
       startingPoint = 100
-      expect(reduce(sourceArray, function(e, memo){return e + memo}, startingPoint)).to.equal(106)
+      expect(reduce(sourceArray, function(e, memo){return e + memo}, startingPoint)).to.equal(103)
     })
   })
 
   describe("reduce returns true when all values are true", function() {
     it("reduces correctly", function(){
       sourceArray = [1, 2, true, "razmatazz"]
-      expect(reduce(sourceArray, function(a, memo){ return !!a && !!memo})).to.be.true
+      expect(reduce(sourceArray, function(a, memo){ return !!a && !!memo})).to.be.false
     })
   })
 
